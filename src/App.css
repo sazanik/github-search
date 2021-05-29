@@ -1,6 +1,34 @@
 .App {
+  display: flex;
+  justify-content: space-between;
   min-width: 320px;
-  padding: 0 40px;
+  padding: 40px 60px;
+  flex-basis: 100%;
+}
+
+.Empty {
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-basis: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  width: 240px;
+  height: 62px;
+  margin-top: 45px;
+  color: #808080;
+  text-align: center;
+  font-size: 22px;
+  line-height: 140%;
 }
 
 /*# sourceMappingURL=App.css.map */

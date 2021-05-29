@@ -1,0 +1,46 @@
+.User {
+  align-self: start;
+}
+
+.User span, .User a {
+  display: inline-block;
+}
+
+.user-photo {
+  width: 280px;
+  margin-bottom: 36px;
+  border-radius: 50%;
+}
+
+.user-info {
+  width: 290px;
+  height: 120px;
+}
+
+.name {
+  height: 34px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  font-size: 26px;
+  color: #000000;
+}
+
+.login {
+  margin-bottom: 25px;
+  font-size: 18px;
+  text-decoration: none;
+  color: #0064EB;
+}
+
+.follow-flex {
+  display: flex;
+  justify-content: space-between;
+  width: 290px;
+  height: 25px;
+}
+
+.follow-flex img {
+  margin-right: 8px;
+
+}
+
