@@ -6,6 +6,7 @@ function App() {
       <h1>github search</h1>
       <h1>github search</h1>
       <h1>github search</h1>
+      <h2>new line</h2>
     </div>
   )
 }
