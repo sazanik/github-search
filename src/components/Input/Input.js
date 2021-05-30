@@ -1,11 +1,12 @@
 import React, {useState} from "react";
 import './Input.scss'
 import {useAlertContext} from "../../context/alert/state";
+import {useGithubContext} from "../../context/github/state";
 
 const Input = () => {
   const [value, setValue] = useState('')
-
   const {hide, show, text} = useAlertContext()
+  const {getUser} = useGithubContext()
 
   const changeHandler = e => {
     setValue(e.target.value)
@@ -18,6 +19,7 @@ const Input = () => {
     }
 
     if (value.trim()) {
+      getUser(value.trim())
       console.log('Make request')
       console.log(value)
     } else {

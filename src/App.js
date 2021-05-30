@@ -8,7 +8,6 @@ import Empty from "./pages/Empty";
 import {AlertState} from "./context/alert/state";
 import {GithubState} from "./context/github/state";
 
-
 const App = () => {
 
   return (

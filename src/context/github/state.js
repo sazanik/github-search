@@ -1,8 +1,13 @@
-import React, {createContext, useReducer} from "react";
+import React, {createContext, useContext, useReducer} from "react";
+import axios from "axios";
 import {reducer} from "./reducer";
 import {GET_USER, GET_REPOS, USER_NOT_FOUND, SET_LOADING} from "../types";
 
+// const CLIENT_ID = process.env.REACT_APP_CLIENT_ID
+// const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET
+
 const GithubContext = createContext('state GithubContext')
+export const useGithubContext = () => useContext(GithubContext)
 
 export const GithubState = ({children}) => {
   const initialState = {
@@ -14,22 +19,32 @@ export const GithubState = ({children}) => {
 
   const {user, repos, loading} = state
 
-  const getUser = async value => {
+
+  const getRepos = async name => {
     setLoading()
 
-    dispatch({
-      type: GET_USER,
-      payload: {}
-    })
-  }
+    const res = await axios.get(`https://api.github.com/users/${name}/repos`)
 
-  const getRepos = async value => {
-    setLoading()
-
+    console.log('repos', res.data)
     dispatch({
       type: GET_REPOS,
       payload: []
     })
+  }
+
+  const getUser = async name => {
+    setLoading()
+
+    const res = await axios.get(`https://api.github.com/users/${name}`)
+
+    /*const res_ = await axios.get(
+      `https://api.github.com/users/${name}?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`)*/
+    dispatch({
+      type: GET_USER,
+      payload: res.data
+    })
+    console.log(res.data)
+    await getRepos(name)
   }
 
   const notFoundUser = () => dispatch({type: USER_NOT_FOUND})
@@ -43,3 +58,4 @@ export const GithubState = ({children}) => {
     </GithubContext.Provider>
   )
 }
+
