@@ -8,4 +8,8 @@
   background: white url("../../icons/search.svg") no-repeat 10px center;
 }
 
+.alert::placeholder {
+  color: red;
+}
+
 /*# sourceMappingURL=Input.css.map */

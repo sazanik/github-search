@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import './Input.scss'
-import {useAppContext} from "../../context/state";
+import {useAppContext} from "../../context/alert/state";
 
 const Input = () => {
   const [value, setValue] = useState('')
@@ -20,12 +20,14 @@ const Input = () => {
     if (value.trim()) {
       console.log('Make request')
       console.log(value)
-    } else show('The field value must not be empty!')
+    } else {
+      show('The field value must not be empty!')
+    }
   }
 
   return (
     <input
-      className='Input'
+      className={!text ? 'Input' : 'Input alert'}
       onKeyPress={onSubmit}
       onChange={e => changeHandler(e)}
       type="text"

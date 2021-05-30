@@ -1,5 +1,5 @@
 import React from "react";
-import {useAppContext} from "../../context/state";
+import {useAppContext} from "../../context/alert/state";
 import './Alert.scss'
 
 const Alert = () => {

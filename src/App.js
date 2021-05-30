@@ -5,8 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Empty from "./pages/Empty";
-import Alert from "./components/Alert/Alert";
-import {AlertProvider} from "./context/state";
+import {AlertProvider} from "./context/alert/state";
 
 
 const App = () => {
@@ -15,7 +14,6 @@ const App = () => {
       <AlertProvider>
         <BrowserRouter>
           <Navbar/>
-          {/*<Alert/>*/}
           <div className='App'>
             <Switch>
               <Route path='/' exact component={Home}/>

@@ -1,6 +1,6 @@
 import React, {useContext, useReducer} from "react";
 import {reducer} from "./reducers";
-import {SHOW_ALERT, HIDE_ALERT} from "./types";
+import {SHOW_ALERT, HIDE_ALERT} from "../types";
 
 const AppContext = React.createContext('default State')
 export const useAppContext = () => useContext(AppContext)
