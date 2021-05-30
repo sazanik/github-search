@@ -18,7 +18,7 @@ const User = () => {
       <div className="user-info">
         <span className='name'>{user.name}</span>
         <br/>
-        <a className='login' target='_blank' href={`https://github.com/${user.login}`}>{user.login}</a>
+        <a className='login' rel="noreferrer" target='_blank' href={`https://github.com/${user.login}`}>{user.login}</a>
         <br/>
 
         <div className='follow-flex'>

@@ -9,24 +9,17 @@ import {useHistory} from "react-router-dom";
 const Empty = () => {
 
   const [firstRender, setFirstRender] = useState(true)
-  const {loading, user, repos, memo} = useGithubContext()
+  const {user, repos, memo} = useGithubContext()
 
   const history = useHistory()
 
   useEffect(() => {
     if (firstRender) {
-      console.log('--------EFFECT---------')
       setFirstRender(false)
-      console.log('firstRender', firstRender)
     } else if ((!firstRender && memo && user && (user.login === memo))) {
-      console.log('firstRender', firstRender)
       history.push('/')
     }
   }, [user, repos])
-
-  console.log('USER', user)
-  console.log('MEMO', memo)
-  console.log('LOADING', loading)
 
   return (
     <div className='Empty'>

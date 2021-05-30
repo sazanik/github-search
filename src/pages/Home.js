@@ -13,28 +13,17 @@ const Home = () => {
   const [firstRender, setFirstRender] = useState(true)
   const {loading, user, repos, memo} = useGithubContext()
 
-  console.log('REPOS', !!repos.length)
   const history = useHistory()
 
   useEffect(() => {
     if (firstRender) {
-      console.log('--------EFFECT---------')
       setFirstRender(false)
-      console.log('firstRender', firstRender)
     } else if (!firstRender && !user && memo) {
-      console.log('firstRender', firstRender)
       history.push('/notfound')
     } else if (!firstRender && !repos.length && memo){
-      console.log('------repo clear------')
       history.push('/empty')
     }
   }, [memo, user, repos])
-
-
-  console.log('USER', user)
-  console.log('MEMO', memo)
-  console.log('LOADING', loading)
-
 
   return (
     <>

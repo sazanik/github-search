@@ -11,7 +11,7 @@ const Repos = () => {
       <span>Repositories ({repos.length})</span>
       {repos.map((repo, idx) => (
         <div className='repo' key={repo.id}>
-          <a href={repo.html_url} target='_blank'>{repo.name}</a>
+          <a href={repo.html_url} rel="noreferrer" target='_blank'>{repo.name}</a>
           <span>{repo.description}</span>
         </div>
 

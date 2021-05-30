@@ -23,9 +23,6 @@ const Input = () => {
     if (searchValue.trim()) {
       getUser(searchValue.trim())
       search(searchValue)
-
-      console.log(searchValue)
-
     } else {
       showAlert('The field value must not be empty!')
     }
