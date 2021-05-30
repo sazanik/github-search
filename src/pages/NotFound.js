@@ -8,19 +8,20 @@ import {useGithubContext} from "../context/github/state";
 const NotFound = () => {
 
   const [firstRender, setFirstRender] = useState(true)
-  const history = useHistory()
   const {loading, user, memo} = useGithubContext()
 
+  const history = useHistory()
 
   useEffect(() => {
     if (firstRender) {
+      console.log('--------EFFECT---------')
       setFirstRender(false)
       console.log('firstRender', firstRender)
     } else if ((memo && user && (user.login === memo))) {
       console.log('firstRender', firstRender)
       history.push('/')
     }
-  })
+  }, [memo, user])
 
   console.log('USER', user)
   console.log('MEMO', memo)
@@ -31,7 +32,6 @@ const NotFound = () => {
       icon={icon}
       text='User not found'
     />
-
 
   )
 }

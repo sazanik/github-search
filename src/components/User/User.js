@@ -2,8 +2,8 @@ import React from "react";
 import './User.scss'
 import followers from '../../icons/followers.svg'
 import following from '../../icons/following.svg'
-import {Link} from "react-router-dom";
 import {useGithubContext} from "../../context/github/state";
+import Repos from "../Repos/Repos";
 
 const User = () => {
 
@@ -33,7 +33,6 @@ const User = () => {
             <img src={following} alt="following"/>{user.following} followers
           </span>
         </div>
-
 
       </div>
     </div>

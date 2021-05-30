@@ -1,8 +1,9 @@
 .App {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
   min-width: 320px;
-  padding: 40px 60px;
+  padding: 30px 60px;
   flex-basis: 100%;
 }
 
