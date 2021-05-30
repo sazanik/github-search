@@ -3,7 +3,7 @@ import './CenterBox.scss'
 
 const CenterBox = (props) => {
   return (
-    <div className='CenterBox'>
+    <div className={props.className || 'CenterBox'}>
       <img
         src={props.icon}
         alt="icon"

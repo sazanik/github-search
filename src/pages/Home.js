@@ -11,8 +11,9 @@ import Repos from "../components/Repos/Repos";
 const Home = () => {
 
   const [firstRender, setFirstRender] = useState(true)
-  const {loading, user, memo} = useGithubContext()
+  const {loading, user, repos, memo} = useGithubContext()
 
+  console.log('REPOS', !!repos.length)
   const history = useHistory()
 
   useEffect(() => {
@@ -23,8 +24,11 @@ const Home = () => {
     } else if (!firstRender && !user && memo) {
       console.log('firstRender', firstRender)
       history.push('/notfound')
+    } else if (!firstRender && !repos.length && memo){
+      console.log('------repo clear------')
+      history.push('/empty')
     }
-  }, [memo, user])
+  }, [memo, user, repos])
 
 
   console.log('USER', user)

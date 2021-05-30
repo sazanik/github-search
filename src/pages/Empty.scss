@@ -1,0 +1,20 @@
+.Empty {
+  display: flex;
+  flex-basis: 100%;
+  height: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.box-empty {
+  display: flex;
+  margin-right: 20px;
+  flex-basis: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+

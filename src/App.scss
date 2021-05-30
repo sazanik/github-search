@@ -1,15 +1,13 @@
 .App {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
   min-width: 320px;
   padding: 30px 60px;
   flex-basis: 100%;
 }
 
-.Empty {
-  display: flex;
-  flex-basis: 100%;
-  align-items: center;
-}
+
+
+
 

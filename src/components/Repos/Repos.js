@@ -5,7 +5,6 @@ import {useGithubContext} from "../../context/github/state";
 
 const Repos = () => {
   const {repos} = useGithubContext()
-  console.log(repos)
 
   return (
     <div className='Repos'>
