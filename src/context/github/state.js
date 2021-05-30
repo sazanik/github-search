@@ -14,10 +14,11 @@ export const GithubState = ({children}) => {
     user: {},
     repos: [],
     loading: false,
+    memo: ''
   }
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  const {user, repos, loading} = state
+  const {user, repos, loading, memo} = state
 
 
   const getRepos = async name => {
@@ -25,10 +26,9 @@ export const GithubState = ({children}) => {
 
     const res = await axios.get(`https://api.github.com/users/${name}/repos`)
 
-    console.log('repos', res.data)
     dispatch({
       type: GET_REPOS,
-      payload: []
+      payload: res.data
     })
   }
 
@@ -41,9 +41,9 @@ export const GithubState = ({children}) => {
       `https://api.github.com/users/${name}?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`)*/
     dispatch({
       type: GET_USER,
-      payload: res.data
+      payload: res.data,
+      memo: name
     })
-    console.log(res.data)
     await getRepos(name)
   }
 
@@ -53,7 +53,7 @@ export const GithubState = ({children}) => {
 
 
   return (
-    <GithubContext.Provider value={{getUser, getRepos, notFoundUser, setLoading, user, repos, loading}}>
+    <GithubContext.Provider value={{getUser, getRepos, notFoundUser, setLoading, user, repos, loading, memo}}>
       {children}
     </GithubContext.Provider>
   )

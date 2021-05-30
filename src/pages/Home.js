@@ -6,7 +6,8 @@ import Loading from "../components/Loading/Loading";
 
 const Home = () => {
 
-  const {getUser, loading} = useGithubContext()
+  const {loading, user, memo} = useGithubContext()
+  console.log("MEMO", memo)
 
   return (
     loading
@@ -22,6 +23,7 @@ const Home = () => {
           Start with searching
           a GitHub user
         </p>
+      :
       </div>
   )
 }

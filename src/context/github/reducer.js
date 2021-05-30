@@ -1,7 +1,7 @@
 import {GET_REPOS, GET_USER, SET_LOADING, USER_NOT_FOUND, REPO_LIST_EMPTY} from '../types'
 
 const handlers = {
-  [GET_USER]: (state, action) => ({...state, user: action.payload, loading: false}),
+  [GET_USER]: (state, action) => ({...state, user: action.payload, loading: false, memo: action.memo}),
   [GET_REPOS]: (state, action) => ({...state, repos: action.payload, loading: false}),
   [SET_LOADING]: state => ({...state, loading: true}),
   [USER_NOT_FOUND]: state => ({...state, user: {}}),
