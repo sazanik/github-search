@@ -2,6 +2,7 @@ import React from "react";
 import '../App.scss'
 import User from "../components/User/User";
 import icon from '../icons/empty.svg'
+import CenterBox from "../components/CenterBox/CenterBox";
 
 const Empty = () => {
   return (

@@ -5,3 +5,6 @@ export const GET_USER = 'GET_USER'
 export const SET_LOADING = 'SET_LOADING'
 export const USER_NOT_FOUND = 'USER_NOT_FOUND'
 export const REPO_LIST_EMPTY = 'REPO_LIST_EMPTY'
+export const SEARCH_VALUE = 'SEARCH_VALUE'
+export const GET_USER_ERROR = 'GET_USER_ERROR'
+

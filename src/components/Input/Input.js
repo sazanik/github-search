@@ -4,13 +4,15 @@ import {useAlertContext} from "../../context/alert/state";
 import {useGithubContext} from "../../context/github/state";
 
 const Input = () => {
-  const [value, setValue] = useState('')
-  const {hide, show, text} = useAlertContext()
-  const {getUser} = useGithubContext()
+  const [searchValue, setSearchValue] = useState('')
+  const {hideAlert, showAlert, text} = useAlertContext()
+  const {getUser, search} = useGithubContext()
+
+
 
   const changeHandler = e => {
-    setValue(e.target.value)
-    hide()
+    setSearchValue(e.target.value)
+    hideAlert()
   }
 
   const onSubmit = e => {
@@ -18,24 +20,26 @@ const Input = () => {
       return
     }
 
-    if (value.trim()) {
-      getUser(value.trim())
-      console.log('Make request')
-      console.log(value)
+    if (searchValue.trim()) {
+      getUser(searchValue.trim())
+      search(searchValue)
+
+      console.log(searchValue)
+
     } else {
-      show('The field value must not be empty!')
+      showAlert('The field value must not be empty!')
     }
   }
 
   return (
     <input
+      type="text"
       className={!text ? 'Input' : 'Input alert'}
+      value={searchValue}
       onKeyPress={onSubmit}
       onChange={e => changeHandler(e)}
-      type="text"
       placeholder={text || 'Enter GitHub username'}
-    >
-    </input>
+    />
   )
 }
 
