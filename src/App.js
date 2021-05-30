@@ -5,13 +5,15 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import Empty from "./pages/Empty";
-import {AlertProvider} from "./context/alert/state";
+import {AlertState} from "./context/alert/state";
+import {GithubState} from "./context/github/state";
 
 
 const App = () => {
 
   return (
-      <AlertProvider>
+    <GithubState>
+      <AlertState>
         <BrowserRouter>
           <Navbar/>
           <div className='App'>
@@ -20,10 +22,10 @@ const App = () => {
               <Route path='/notfound' component={NotFound}/>
               <Route path='/empty' component={Empty}/>
             </Switch>
-
           </div>
         </BrowserRouter>
-      </AlertProvider>
+      </AlertState>
+    </GithubState>
   )
 }
 

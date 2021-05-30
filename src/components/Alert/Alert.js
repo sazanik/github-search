@@ -1,10 +1,10 @@
 import React from "react";
-import {useAppContext} from "../../context/alert/state";
+import {useAlertContext} from "../../context/alert/state";
 import './Alert.scss'
 
 const Alert = () => {
 
-  const {visible, text, show} = useAppContext()
+  const {visible, text, show} = useAlertContext()
   console.log(visible, text, show)
 
   if (!visible) return null

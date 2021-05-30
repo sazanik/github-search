@@ -1,11 +1,11 @@
-import React, {useContext, useReducer} from "react";
-import {reducer} from "./reducers";
+import React, {createContext, useContext, useReducer} from "react";
+import {reducer} from "./reducer";
 import {SHOW_ALERT, HIDE_ALERT} from "../types";
 
-const AppContext = React.createContext('default State')
-export const useAppContext = () => useContext(AppContext)
+const AlertContext = createContext('state AlertContext')
+export const useAlertContext = () => useContext(AlertContext)
 
-export const AlertProvider = ({children}) => {
+export const AlertState = ({children}) => {
   const [state, dispatch] = useReducer(reducer, {
     visible: false,
     text: '',
@@ -26,9 +26,9 @@ export const AlertProvider = ({children}) => {
   }
 
   return (
-    <AppContext.Provider value={state}>
+    <AlertContext.Provider value={state}>
       {children}
-    </AppContext.Provider>
+    </AlertContext.Provider>
   )
 }
 

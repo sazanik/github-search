@@ -1,11 +1,11 @@
 import React, {useState} from "react";
 import './Input.scss'
-import {useAppContext} from "../../context/alert/state";
+import {useAlertContext} from "../../context/alert/state";
 
 const Input = () => {
   const [value, setValue] = useState('')
 
-  const {hide, show, text} = useAppContext()
+  const {hide, show, text} = useAlertContext()
 
   const changeHandler = e => {
     setValue(e.target.value)
