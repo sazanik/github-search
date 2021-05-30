@@ -8,7 +8,7 @@ import {useGithubContext} from "../context/github/state";
 const NotFound = () => {
 
   const [firstRender, setFirstRender] = useState(true)
-  const {loading, user, memo} = useGithubContext()
+  const {loading, user, memo, repos} = useGithubContext()
 
   const history = useHistory()
 
@@ -20,6 +20,9 @@ const NotFound = () => {
     } else if ((memo && user && (user.login === memo))) {
       console.log('firstRender', firstRender)
       history.push('/')
+    } else if ((memo && user && !repos && (user.login === memo))) {
+      console.log('firstRender', firstRender)
+      history.push('/empty')
     }
   }, [memo, user])
 

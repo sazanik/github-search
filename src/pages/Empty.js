@@ -18,11 +18,11 @@ const Empty = () => {
       console.log('--------EFFECT---------')
       setFirstRender(false)
       console.log('firstRender', firstRender)
-    } /*else if ((memo && user && (user.login === memo))) {
+    } else if ((!firstRender && memo && user && (user.login === memo))) {
       console.log('firstRender', firstRender)
       history.push('/')
-    }*/
-  }, [memo, user, repos])
+    }
+  }, [user, repos])
 
   console.log('USER', user)
   console.log('MEMO', memo)
@@ -30,12 +30,18 @@ const Empty = () => {
 
   return (
     <div className='Empty'>
-      <User/>
-      <CenterBox
-        className='box-empty'
-        icon={icon}
-        text='Repository list is empty'
-      />
+      {!!user
+        ? <>
+          <User/>
+          <CenterBox
+            className='box-empty'
+            icon={icon}
+            text='Repository list is empty'
+          />
+        </>
+        : history.push('/notfound')
+      }
+
     </div>
   )
 }

@@ -3,19 +3,16 @@ import './User.scss'
 import followers from '../../icons/followers.svg'
 import following from '../../icons/following.svg'
 import {useGithubContext} from "../../context/github/state";
-import Repos from "../Repos/Repos";
 
 const User = () => {
 
   const {user} = useGithubContext()
 
-  console.log(user)
-
   return (
     <div className="User">
       <img
         className='user-photo'
-        src={user.avatar_url}
+        src={user.avatar_url || ''}
         alt={user.login}
       />
       <div className="user-info">
