@@ -3,6 +3,7 @@ import './User.scss'
 import followers from '../../icons/followers.svg'
 import following from '../../icons/following.svg'
 import userPhoto from '../../icons/user-photo.jpeg'
+import {Link} from "react-router-dom";
 
 const User = () => {
   return (
@@ -15,7 +16,7 @@ const User = () => {
       <div className="user-info">
         <span className='name'>Name Surname</span>
         <br/>
-        <a className='login' href='/'>login</a>
+        <Link className='login' to='/'>login</Link>
         <br/>
 
         <div className='follow-flex'>

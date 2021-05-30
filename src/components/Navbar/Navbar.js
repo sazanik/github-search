@@ -6,13 +6,13 @@ import logo from '../../icons/github.svg'
 const Navbar = () => {
 
   return (
-      <nav className='Navbar'>
-        <img
-          className='logo'
-          src={logo}
-          alt="github logo"/>
-        <Input/>
-      </nav>
+    <nav className='Navbar'>
+      <img
+        className='logo'
+        src={logo}
+        alt="github"/>
+      <Input/>
+    </nav>
   )
 }
 
