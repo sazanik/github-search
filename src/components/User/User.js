@@ -21,16 +21,16 @@ const User = () => {
       <div className="user-info">
         <span className='name'>{user.name}</span>
         <br/>
-        <Link className='login' to={`https://github.com/${user.login}`}>{user.login}</Link>
+        <a className='login' target='_blank' href={`https://github.com/${user.login}`}>{user.login}</a>
         <br/>
 
         <div className='follow-flex'>
           <span className="followers">
-            <img src={followers} alt="followers"/>26.5k followers
+            <img src={followers} alt="followers"/>{user.followers} followers
           </span>
 
           <span className="following">
-            <img src={following} alt="following"/>138 followers
+            <img src={following} alt="following"/>{user.following} followers
           </span>
         </div>
 
