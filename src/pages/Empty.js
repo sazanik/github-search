@@ -5,11 +5,12 @@ import icon from '../icons/empty.svg'
 import CenterBox from "../components/CenterBox/CenterBox";
 import {useGithubContext} from "../context/github/state";
 import {useHistory} from "react-router-dom";
+import Loading from "../components/Loading/Loading";
 
 const Empty = () => {
 
   const [firstRender, setFirstRender] = useState(true)
-  const {user, repos, memo} = useGithubContext()
+  const {user, repos, memo, loading} = useGithubContext()
 
   const history = useHistory()
 
@@ -22,20 +23,22 @@ const Empty = () => {
   }, [user, repos])
 
   return (
-    <div className='Empty'>
-      {!!user
-        ? <>
-          <User/>
-          <CenterBox
-            className='box-empty'
-            icon={icon}
-            text='Repository list is empty'
-          />
-        </>
-        : history.push('/notfound')
-      }
+    loading
+      ? <Loading/>
+      : <div className='Empty'>
+        {!!user
+          ? <>
+            <User/>
+            <CenterBox
+              className='box-empty'
+              icon={icon}
+              text='Repository list is empty'
+            />
+          </>
+          : history.push('/notfound')
+        }
 
-    </div>
+      </div>
   )
 }
 

@@ -33,13 +33,10 @@ export const GithubState = ({children}) => {
 
   const getRepos = async (name, perPage, currentPage) => {
     setLoading()
-    console.log(name, perPage, currentPage)
     try {
-      // const res = await axios.get(`https://api.github.com/users/${name}/repos?per_page=${perPage}`)
+      // const res = await axios.get(`https://api.github.com/users/${name}/repos?per_page=${perPage}&page=${currentPage}`)
       const res = await axios.get(
         `https://api.github.com/users/${name}/repos?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&per_page=${perPage}&page=${currentPage}`)
-
-
 
       dispatch({
         type: GET_REPOS,
@@ -59,8 +56,6 @@ export const GithubState = ({children}) => {
       const res = await axios.get(
         `https://api.github.com/users/${name}?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`)
 
-      console.log(res.data.public_repos)
-
       dispatch({
         type: GET_USER,
         payload: res.data,
@@ -73,14 +68,13 @@ export const GithubState = ({children}) => {
   }
 
   const setLoading = () => dispatch({type: SET_LOADING})
+
   const setCurrentPage = page => {
-    console.log('setCurrentPage', page)
     setLoading()
     dispatch({type: SET_CURRENT_PAGE, payload: page})
   }
 
-
-  const setValue = (text) => {
+  const setMemo = (text) => {
 
     dispatch({type: SET_MEMO, payload: {text}})
   }
@@ -91,7 +85,7 @@ export const GithubState = ({children}) => {
       getRepos,
       setLoading,
       setCurrentPage,
-      setValue,
+      setMemo,
       user,
       repos,
       loading,

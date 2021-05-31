@@ -4,11 +4,12 @@ import icon from '../icons/user.svg'
 import {useHistory} from "react-router-dom";
 import CenterBox from "../components/CenterBox/CenterBox";
 import {useGithubContext} from "../context/github/state";
+import Loading from "../components/Loading/Loading";
 
 const NotFound = () => {
 
   const [firstRender, setFirstRender] = useState(true)
-  const {user, memo, repos} = useGithubContext()
+  const {user, memo, repos, loading} = useGithubContext()
 
   const history = useHistory()
 
@@ -23,10 +24,12 @@ const NotFound = () => {
   }, [memo, user])
 
   return (
-    <CenterBox
-      icon={icon}
-      text='User not found'
-    />
+    loading
+      ? <Loading/>
+      : <CenterBox
+        icon={icon}
+        text='User not found'
+      />
 
   )
 }

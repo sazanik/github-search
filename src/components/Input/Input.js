@@ -6,7 +6,7 @@ import {useGithubContext} from "../../context/github/state";
 const Input = () => {
   const [searchValue, setSearchValue] = useState('')
   const {hideAlert, showAlert, text} = useAlertContext()
-  const {getUser, setValue, perPage, currentPage} = useGithubContext()
+  const {getUser, setMemo, perPage, currentPage} = useGithubContext()
 
 
   const changeHandler = e => {
@@ -21,7 +21,7 @@ const Input = () => {
 
     if (searchValue.trim()) {
       getUser(searchValue.trim(), perPage, currentPage)
-      setValue(searchValue)
+      setMemo(searchValue)
     } else {
       showAlert('The field value must not be empty!')
     }

@@ -10,10 +10,10 @@ import {
 
 const handlers = {
   [GET_USER]: (state, action) => ({...state, user: action.payload, totalRepos: action.payload.public_repos, currentPage: 1, loading: false}),
-  [GET_USER_ERROR]: state => ({...state, user: ''}),
+  [GET_USER_ERROR]: state => ({...state, user: '', loading: false}),
   [GET_REPOS]: (state, action) => ({...state, repos: action.payload, loading: false}),
   [SET_LOADING]: state => ({...state, loading: true}),
-  [REPO_LIST_EMPTY]: state => ({...state, repos: []}),
+  [REPO_LIST_EMPTY]: state => ({...state, repos: [], loading: false}),
   [SET_MEMO]: (state, action) => ({...state, memo: action.payload.text}),
   [SET_CURRENT_PAGE]: (state, action) => ({...state, currentPage: action.payload, loading: false}),
   DEFAULT: state => state
