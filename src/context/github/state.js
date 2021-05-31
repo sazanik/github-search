@@ -1,7 +1,15 @@
 import React, {createContext, useContext, useReducer} from "react";
 import axios from "axios";
 import {reducer} from "./reducer";
-import {GET_USER_ERROR, SEARCH_VALUE, GET_USER, GET_REPOS, USER_NOT_FOUND, SET_LOADING} from "../types";
+import {
+  GET_USER_ERROR,
+  SEARCH_VALUE,
+  GET_USER,
+  GET_REPOS,
+  USER_NOT_FOUND,
+  SET_LOADING,
+  SET_CURRENT_PAGE
+} from "../types";
 
 // const CLIENT_ID = process.env.REACT_APP_CLIENT_ID
 // const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET
@@ -14,20 +22,24 @@ export const GithubState = ({children}) => {
     user: null,
     repos: [],
     loading: false,
-    memo: ''
+    memo: '',
+    currentPage: 1,
+    perPage: 4,
+    totalRepos: 0,
+
   }
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  const {user, repos, loading, memo} = state
-
+  const {user, repos, loading, memo, currentPage, perPage, totalRepos} = state
 
   const getRepos = async name => {
     setLoading()
 
     try {
       const res = await axios.get(`https://api.github.com/users/${name}/repos`)
-    /* const res = await axios.get(
-        `https://api.github.com/users/${name}/repos?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`)*/
+      /* const res = await axios.get(
+          `https://api.github.com/users/${name}/repos?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`)*/
+
 
       dispatch({
         type: GET_REPOS,
@@ -46,6 +58,9 @@ export const GithubState = ({children}) => {
       const res = await axios.get(`https://api.github.com/users/${name}`)
       /*const res = await axios.get(
         `https://api.github.com/users/${name}?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`)*/
+
+      console.log(res.data.public_repos)
+
       dispatch({
         type: GET_USER,
         payload: res.data,
@@ -57,13 +72,12 @@ export const GithubState = ({children}) => {
         type: GET_USER_ERROR,
       })
     }
-
-
   }
 
   const notFoundUser = () => dispatch({type: USER_NOT_FOUND})
-
   const setLoading = () => dispatch({type: SET_LOADING})
+  const setCurrentPage = (page) => dispatch({type: SET_CURRENT_PAGE, payload: page})
+
 
   const search = (text) => {
 
@@ -71,7 +85,21 @@ export const GithubState = ({children}) => {
   }
 
   return (
-    <GithubContext.Provider value={{getUser, getRepos, notFoundUser, setLoading, search, user, repos, loading, memo}}>
+    <GithubContext.Provider value={{
+      getUser,
+      getRepos,
+      notFoundUser,
+      setLoading,
+      setCurrentPage,
+      search,
+      user,
+      repos,
+      loading,
+      memo,
+      currentPage,
+      perPage,
+      totalRepos
+    }}>
       {children}
     </GithubContext.Provider>
   )

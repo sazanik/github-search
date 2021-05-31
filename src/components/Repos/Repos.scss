@@ -23,23 +23,40 @@
 
 .repo {
   padding: 24px 32px;
+  a {
+    display: block;
+    margin-bottom: 16px;
+    font-weight: 500;
+    height: 30px;
+    overflow: hidden;
+    font-size: 24px;
+    text-decoration: none;
+    color: #0064EB;
+  }
+  span {
+    display: block;
+    overflow: hidden;
+    height: 19px;
+    font-size: 16px;
+  }
 }
 
-.repo a {
-  display: block;
-  margin-bottom: 16px;
-  font-weight: 500;
-  height: 30px;
-  overflow: hidden;
-  font-size: 24px;
-  text-decoration: none;
-  color: #0064EB;
-}
 
-.repo span {
-  display: block;
-  overflow: hidden;
-  height: 19px;
 
-  font-size: 16px;
+
+.pages {
+  margin: 20px 0;
+  .page {
+    display: inline-block;
+    text-align: center;
+    min-width: 15px;
+    border: 1px solid #86a7d2;
+    padding: 5px 10px;
+    margin-left: -1px;
+    transition: all .2s ease-in-out;
+  }
+  :hover {
+    background: white;
+    cursor: pointer;
+  }
 }
