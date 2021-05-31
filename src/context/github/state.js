@@ -3,16 +3,15 @@ import axios from "axios";
 import {reducer} from "./reducer";
 import {
   GET_USER_ERROR,
-  SEARCH_VALUE,
+  SET_MEMO,
   GET_USER,
   GET_REPOS,
-  USER_NOT_FOUND,
   SET_LOADING,
   SET_CURRENT_PAGE
 } from "../types";
 
-// const CLIENT_ID = process.env.REACT_APP_CLIENT_ID
-// const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET
+const CLIENT_ID = process.env.REACT_APP_CLIENT_ID
+const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET
 
 const GithubContext = createContext('state GithubContext')
 export const useGithubContext = () => useContext(GithubContext)
@@ -32,13 +31,14 @@ export const GithubState = ({children}) => {
 
   const {user, repos, loading, memo, currentPage, perPage, totalRepos} = state
 
-  const getRepos = async name => {
+  const getRepos = async (name, perPage, currentPage) => {
     setLoading()
-
+    console.log(name, perPage, currentPage)
     try {
-      const res = await axios.get(`https://api.github.com/users/${name}/repos`)
-      /* const res = await axios.get(
-          `https://api.github.com/users/${name}/repos?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`)*/
+      // const res = await axios.get(`https://api.github.com/users/${name}/repos?per_page=${perPage}`)
+      const res = await axios.get(
+        `https://api.github.com/users/${name}/repos?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&per_page=${perPage}&page=${currentPage}`)
+
 
 
       dispatch({
@@ -51,13 +51,13 @@ export const GithubState = ({children}) => {
 
   }
 
-  const getUser = async name => {
+  const getUser = async (name, perPage, currentPage) => {
     setLoading()
 
     try {
-      const res = await axios.get(`https://api.github.com/users/${name}`)
-      /*const res = await axios.get(
-        `https://api.github.com/users/${name}?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`)*/
+      // const res = await axios.get(`https://api.github.com/users/${name}`)
+      const res = await axios.get(
+        `https://api.github.com/users/${name}?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`)
 
       console.log(res.data.public_repos)
 
@@ -65,33 +65,33 @@ export const GithubState = ({children}) => {
         type: GET_USER,
         payload: res.data,
       })
-      await getRepos(name)
+      await getRepos(name, perPage, currentPage)
     } catch (err) {
       console.log(err)
-      dispatch({
-        type: GET_USER_ERROR,
-      })
+      dispatch({type: GET_USER_ERROR,})
     }
   }
 
-  const notFoundUser = () => dispatch({type: USER_NOT_FOUND})
   const setLoading = () => dispatch({type: SET_LOADING})
-  const setCurrentPage = (page) => dispatch({type: SET_CURRENT_PAGE, payload: page})
+  const setCurrentPage = page => {
+    console.log('setCurrentPage', page)
+    setLoading()
+    dispatch({type: SET_CURRENT_PAGE, payload: page})
+  }
 
 
-  const search = (text) => {
+  const setValue = (text) => {
 
-    dispatch({type: SEARCH_VALUE, payload: {text}})
+    dispatch({type: SET_MEMO, payload: {text}})
   }
 
   return (
     <GithubContext.Provider value={{
       getUser,
       getRepos,
-      notFoundUser,
       setLoading,
       setCurrentPage,
-      search,
+      setValue,
       user,
       repos,
       loading,

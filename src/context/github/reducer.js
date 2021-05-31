@@ -1,23 +1,21 @@
 import {
   GET_USER_ERROR,
-  SEARCH_VALUE,
+  SET_MEMO,
   GET_REPOS,
   GET_USER,
   SET_LOADING,
-  USER_NOT_FOUND,
   REPO_LIST_EMPTY,
   SET_CURRENT_PAGE
 } from '../types'
 
 const handlers = {
-  [GET_USER]: (state, action) => ({...state, user: action.payload, totalRepos: action.payload.public_repos, loading: false}),
-  [GET_USER_ERROR]: state => ({...state, user: null ,loading: false}),
+  [GET_USER]: (state, action) => ({...state, user: action.payload, totalRepos: action.payload.public_repos, currentPage: 1, loading: false}),
+  [GET_USER_ERROR]: state => ({...state, user: ''}),
   [GET_REPOS]: (state, action) => ({...state, repos: action.payload, loading: false}),
   [SET_LOADING]: state => ({...state, loading: true}),
-  [USER_NOT_FOUND]: state => ({...state, user: {}}),
   [REPO_LIST_EMPTY]: state => ({...state, repos: []}),
-  [SEARCH_VALUE]: (state, action) => ({...state, memo: action.payload.text}),
-  [SET_CURRENT_PAGE]: (state, action) => ({...state, currentPage: action.payload}),
+  [SET_MEMO]: (state, action) => ({...state, memo: action.payload.text}),
+  [SET_CURRENT_PAGE]: (state, action) => ({...state, currentPage: action.payload, loading: false}),
   DEFAULT: state => state
 }
 
