@@ -3,7 +3,7 @@ import './Pagination.scss'
 import {useGithubContext} from "../../context/github/state";
 import Loading from "../Loading/Loading";
 
-const Pagination = (props) => {
+const Pagination = () => {
 
   const [firstRender, setFirstRender] = useState(true)
 
@@ -56,8 +56,11 @@ const Pagination = (props) => {
       : pagesArr.length < 2
       ? null
       : <div className='Pagination'>
-          <span className='one-step'
-                onClick={() => clickHandler(memo, perPage, currentPage - 1)}>{'<'}</span>
+        <span className='pages-info'>
+          {`${currentPage * 4 - 3} - ${currentPage * 4} of ${totalRepos} items`}
+        </span>
+        <span className='one-step'
+              onClick={() => clickHandler(memo, perPage, currentPage - 1)}>{'<'}</span>
         {pagesArr.map(page => (
           <span
             className={currentPage === page ? 'current-page' : 'page'}
