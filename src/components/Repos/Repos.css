@@ -1,4 +1,7 @@
 .Repos {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   align-self: start;
   flex-shrink: 1;
   flex-grow: 1;
@@ -12,7 +15,7 @@
 
 .repo {
   box-sizing: border-box;
-  margin: 24px 0;
+  margin: 20px 0;
   min-width: 200px;
   max-width: 900px;
   height: 112px;

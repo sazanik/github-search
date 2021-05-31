@@ -56,20 +56,22 @@ const Pagination = () => {
       : pagesArr.length < 2
       ? null
       : <div className='Pagination'>
+        <div className="flex-box">
         <span className='pages-info'>
           {`${currentPage * 4 - 3} - ${currentPage * 4} of ${totalRepos} items`}
         </span>
-        <span className='one-step'
-              onClick={() => clickHandler(memo, perPage, currentPage - 1)}>{'<'}</span>
-        {pagesArr.map(page => (
-          <span
-            className={currentPage === page ? 'current-page' : 'page'}
-            key={Math.random()}
-            onClick={() => clickHandler(memo, perPage, page)}
-          >{page}</span>
-        ))}
-        <span className='one-step'
-              onClick={() => clickHandler(memo, perPage, currentPage + 1)}>{'>'}</span>
+          <span className='one-step'
+                onClick={() => clickHandler(memo, perPage, currentPage - 1)}>{'<'}</span>
+          {pagesArr.map(page => (
+            <span
+              className={currentPage === page ? 'current-page' : 'page'}
+              key={Math.random()}
+              onClick={() => clickHandler(memo, perPage, page)}
+            >{page}</span>
+          ))}
+          <span className='one-step'
+                onClick={() => clickHandler(memo, perPage, currentPage + 1)}>{'>'}</span>
+        </div>
       </div>
   )
 }
