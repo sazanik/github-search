@@ -1,47 +1,41 @@
 .User {
   align-self: start;
   margin-right: 90px;
+  margin-bottom: 30px;
 }
-
 .User span, .User a {
   display: inline-block;
 }
-
-.user-photo {
+.User .user-photo {
   margin-top: 10px;
   width: 280px;
   margin-bottom: 36px;
   border-radius: 50%;
 }
-
-.user-info {
+.User .user-info {
   width: 290px;
   height: 120px;
 }
-
-.name {
+.User .user-info .name {
   height: 34px;
   margin-bottom: 12px;
   font-weight: 600;
   font-size: 26px;
   color: #000000;
 }
-
-.login {
+.User .user-info .login {
   margin-bottom: 25px;
   font-size: 18px;
   text-decoration: none;
   color: #0064EB;
 }
-
-.follow-flex {
+.User .user-info .follow-flex {
   display: flex;
   justify-content: space-between;
   width: 290px;
   height: 25px;
 }
-
-.follow-flex img {
+.User .user-info .follow-flex img {
   margin-right: 8px;
 }
 
