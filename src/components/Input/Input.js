@@ -17,8 +17,8 @@ const Input = () => {
     if (e.key !== 'Enter') return
 
     if (searchValue) {
-      getUser(searchValue, perPage, currentPage)
-      setMemo(searchValue)
+      getUser(searchValue.toLowerCase(), perPage, currentPage)
+      setMemo(searchValue.toLowerCase())
     } else {
       showAlert('The field value must not be empty!')
     }

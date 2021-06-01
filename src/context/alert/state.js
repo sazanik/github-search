@@ -1,6 +1,6 @@
-import React, {createContext, useContext, useReducer} from "react";
-import {reducer} from "./reducer";
-import {SHOW_ALERT, HIDE_ALERT} from "../types";
+import React, {createContext, useContext, useReducer} from 'react'
+import {reducer} from './reducer'
+import {SHOW_ALERT, HIDE_ALERT} from '../types'
 
 const AlertContext = createContext('state AlertContext')
 export const useAlertContext = () => useContext(AlertContext)

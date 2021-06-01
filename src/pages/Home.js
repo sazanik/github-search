@@ -20,7 +20,7 @@ const Home = () => {
       setFirstRender(false)
     } else if (!firstRender && !user && memo) {
       history.push('/notfound')
-    } else if (!firstRender && !repos.length && memo){
+    } else if (!firstRender && !repos.length && memo) {
       history.push('/empty')
     }
   }, [memo, user, repos])
@@ -30,10 +30,10 @@ const Home = () => {
       {loading
         ? <Loading/>
         : (memo && user && (user.login === memo))
-          ? (<>
+          ? <>
             <User/>
             <Repos/>
-          </>)
+          </>
           : <CenterBox
             icon={icon}
             text='Start with searching a GitHub user'

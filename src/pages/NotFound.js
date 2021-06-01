@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState} from 'react'
 import '../App.scss'
 import icon from '../icons/user.svg'
-import {useHistory} from "react-router-dom";
-import CenterBox from "../components/CenterBox/CenterBox";
-import {useGithubContext} from "../context/github/state";
-import Loading from "../components/Loading/Loading";
+import {useHistory} from 'react-router-dom'
+import CenterBox from '../components/CenterBox/CenterBox'
+import {useGithubContext} from '../context/github/state'
+import Loading from '../components/Loading/Loading'
 
 const NotFound = () => {
 
@@ -16,9 +16,9 @@ const NotFound = () => {
   useEffect(() => {
     if (firstRender) {
       setFirstRender(false)
-    } else if ((memo && user && (user.login === memo))) {
+    } else if (memo && user && (user.login === memo)) {
       history.push('/')
-    } else if ((memo && user && !repos && (user.login === memo))) {
+    } else if (memo && user && !repos && (user.login === memo)) {
       history.push('/empty')
     }
   }, [memo, user])
@@ -30,7 +30,6 @@ const NotFound = () => {
         icon={icon}
         text='User not found'
       />
-
   )
 }
 

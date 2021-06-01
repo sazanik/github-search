@@ -14,13 +14,11 @@ const Repos = () => {
       : <div className='Repos'>
         <span>Repositories ({user.public_repos})</span>
         {repos.map(repo => (
-            <div className='repo' key={repo.id}>
-              <a href={repo.html_url} rel='noreferrer' target='_blank'>{repo.name}</a>
-              <span>{repo.description}</span>
-            </div>
-          )
-        )}
-
+          <div className='repo' key={repo.id}>
+            <a href={repo.html_url} rel='noreferrer' target='_blank'>{repo.name}</a>
+            <span>{repo.description}</span>
+          </div>
+        ))}
         <Pagination/>
       </div>
   )

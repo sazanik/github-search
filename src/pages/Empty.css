@@ -6,8 +6,7 @@
   justify-content: space-between;
   align-items: center;
 }
-
-.box-empty {
+.Empty .box-empty {
   display: flex;
   margin-right: 20px;
   flex-basis: 100%;

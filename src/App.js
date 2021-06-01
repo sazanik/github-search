@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react'
 import './App.scss'
-import {BrowserRouter, Switch, Route} from "react-router-dom";
-import Navbar from "./components/Navbar/Navbar";
-import Home from "./pages/Home";
-import NotFound from "./pages/NotFound";
-import Empty from "./pages/Empty";
-import {AlertState} from "./context/alert/state";
-import {GithubState} from "./context/github/state";
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import Navbar from './components/Navbar/Navbar'
+import Home from './pages/Home'
+import NotFound from './pages/NotFound'
+import Empty from './pages/Empty'
+import {AlertState} from './context/alert/state'
+import {GithubState} from './context/github/state'
 
 const App = () => {
 

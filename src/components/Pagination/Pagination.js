@@ -66,9 +66,9 @@ const Pagination = () => {
       ? null
       : <div className='Pagination'>
         <div className='flex-box'>
-              <span className='pages-info'>
-                {infoPaginate()}
-              </span>
+          <span className='pages-info'>
+            {infoPaginate()}
+          </span>
           <span className='one-step'
                 onClick={() => clickHandler(memo, perPage, currentPage - 1)}
           >{'<'}</span>
