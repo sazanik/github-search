@@ -11,9 +11,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 body #root {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   height: 100vh;
 }
 body code {

@@ -29,7 +29,7 @@ const Home = () => {
     <>
       {loading
         ? <Loading/>
-        : (memo && user && (user.login === memo))
+        : (memo && user && (user.login.toLowerCase() === memo))
           ? <>
             <User/>
             <Repos/>

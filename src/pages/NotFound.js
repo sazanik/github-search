@@ -16,9 +16,9 @@ const NotFound = () => {
   useEffect(() => {
     if (firstRender) {
       setFirstRender(false)
-    } else if (memo && user && (user.login === memo)) {
+    } else if (memo && user && (user.login.toLowerCase() === memo)) {
       history.push('/')
-    } else if (memo && user && !repos && (user.login === memo)) {
+    } else if (memo && user && !repos && (user.login.toLowerCase() === memo)) {
       history.push('/empty')
     }
   }, [memo, user])

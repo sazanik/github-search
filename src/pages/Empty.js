@@ -17,7 +17,7 @@ const Empty = () => {
   useEffect(() => {
     if (firstRender) {
       setFirstRender(false)
-    } else if ((!firstRender && memo && user && (user.login === memo))) {
+    } else if ((!firstRender && memo && user && (user.login.toLowerCase() === memo))) {
       history.push('/')
     }
   }, [user, repos])

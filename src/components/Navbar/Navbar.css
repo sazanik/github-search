@@ -1,11 +1,15 @@
 .Navbar {
-  display: flex;
-  align-items: center;
-  height: 72px;
-  padding: 0 40px;
   background: #0064EB;
 }
-.Navbar .logo {
+.Navbar .wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  height: 80px;
+}
+.Navbar .wrapper .logo {
   margin: 15px 20px 15px 0;
 }
 
