@@ -7,7 +7,7 @@ export const reducer = (state, action) => {
       return {...state, visible: true, text: action.payload.text}
 
     case HIDE_ALERT:
-      return {...state, visible: false, text: '' }
+      return {...state, visible: false, text: ''}
 
     default:
       return state

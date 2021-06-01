@@ -1,19 +1,16 @@
-import React from "react";
+import React from 'react'
 import './Navbar.scss'
-import Input from "../Input/Input";
+import Input from '../Input/Input'
 import logo from '../../icons/github.svg'
 
-const Navbar = () => {
-
-  return (
+const Navbar = () => (
     <nav className='Navbar'>
       <img
         className='logo'
         src={logo}
-        alt="github"/>
+        alt='github'/>
       <Input/>
     </nav>
   )
-}
 
 export default Navbar

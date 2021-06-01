@@ -1,4 +1,4 @@
-.lds-hourglass {
+.Loading {
   display: flex;
   width: 80px;
   flex-basis: 100%;
@@ -7,7 +7,8 @@
   justify-content: center;
   align-items: center;
 }
-.lds-hourglass:after {
+
+.Loading:after {
   content: " ";
   display: block;
   border-radius: 50%;
@@ -17,9 +18,10 @@
   box-sizing: border-box;
   border: 32px solid;
   border-color: #808080 transparent;
-  animation: lds-hourglass 1.2s infinite;
+  animation: Loading 1.2s infinite;
 }
-@keyframes lds-hourglass {
+
+@keyframes Loading {
   0% {
     transform: rotate(0);
     animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);

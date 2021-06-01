@@ -1,18 +1,16 @@
-import React from "react";
+import React from 'react'
 import './CenterBox.scss'
 
-const CenterBox = (props) => {
-  return (
+const CenterBox = (props) => (
     <div className={props.className || 'CenterBox'}>
       <img
         src={props.icon}
-        alt="icon"
+        alt='icon'
       />
       <p className='text'>
         {props.text}
       </p>
     </div>
   )
-}
 
 export default CenterBox

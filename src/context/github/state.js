@@ -10,8 +10,8 @@ import {
   SET_CURRENT_PAGE
 } from "../types";
 
-// const CLIENT_ID = process.env.REACT_APP_CLIENT_ID
-// const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET
+const CLIENT_ID = process.env.REACT_APP_CLIENT_ID
+const CLIENT_SECRET = process.env.REACT_APP_CLIENT_SECRET
 
 const GithubContext = createContext('state GithubContext')
 export const useGithubContext = () => useContext(GithubContext)
@@ -34,9 +34,9 @@ export const GithubState = ({children}) => {
   const getRepos = async (name, perPage, currentPage) => {
     setLoading()
     try {
-      const res = await axios.get(`https://api.github.com/users/${name}/repos?per_page=${perPage}&page=${currentPage}`)
-/*      const res = await axios.get(
-        `https://api.github.com/users/${name}/repos?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&per_page=${perPage}&page=${currentPage}`)*/
+      // const res = await axios.get(`https://api.github.com/users/${name}/repos?per_page=${perPage}&page=${currentPage}`)
+      const res = await axios.get(
+        `https://api.github.com/users/${name}/repos?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}&per_page=${perPage}&page=${currentPage}`)
 
       dispatch({
         type: GET_REPOS,
@@ -52,9 +52,9 @@ export const GithubState = ({children}) => {
     setLoading()
 
     try {
-      const res = await axios.get(`https://api.github.com/users/${name}`)
-  /*    const res = await axios.get(
-        `https://api.github.com/users/${name}?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`)*/
+      // const res = await axios.get(`https://api.github.com/users/${name}`)
+      const res = await axios.get(
+        `https://api.github.com/users/${name}?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`)
 
       dispatch({
         type: GET_USER,

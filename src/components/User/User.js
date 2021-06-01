@@ -1,4 +1,5 @@
 import React from "react";
+import {millify} from "millify"
 import './User.scss'
 import followers from '../../icons/followers.svg'
 import following from '../../icons/following.svg'
@@ -23,11 +24,12 @@ const User = () => {
 
         <div className='follow-flex'>
           <span className="followers">
-            <img src={followers} alt="followers"/>{user.followers} followers
+            <img src={followers} alt="followers"/>
+            {millify(user.followers, {precision: 1, lowercase: true})} followers
           </span>
 
           <span className="following">
-            <img src={following} alt="following"/>{user.following} followers
+            <img src={following} alt="following"/>{millify(user.following, {precision: 1, lowercase: true})} following
           </span>
         </div>
 

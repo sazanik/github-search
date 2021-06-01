@@ -6,27 +6,28 @@
   flex-shrink: 1;
   flex-grow: 1;
 }
-
 .Repos > span {
   font-weight: 600;
   font-size: 32px;
   line-height: 130%;
 }
-
-.repo {
+.Repos .repo {
   box-sizing: border-box;
   margin: 20px 0;
   min-width: 200px;
   max-width: 900px;
   height: 112px;
+  padding: 24px 32px;
   border-radius: 6px;
   background-color: white;
 }
-
-.repo {
-  padding: 24px 32px;
+.Repos .repo span {
+  display: block;
+  overflow: hidden;
+  height: 20px;
+  font-size: 16px;
 }
-.repo a {
+.Repos .repo a {
   display: block;
   margin-bottom: 16px;
   font-weight: 500;
@@ -35,12 +36,6 @@
   font-size: 24px;
   text-decoration: none;
   color: #0064EB;
-}
-.repo span {
-  display: block;
-  overflow: hidden;
-  height: 19px;
-  font-size: 16px;
 }
 
 /*# sourceMappingURL=Repos.css.map */

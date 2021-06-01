@@ -1,26 +1,23 @@
-import React, {useState} from "react";
+import React, {useState} from 'react'
 import './Input.scss'
-import {useAlertContext} from "../../context/alert/state";
-import {useGithubContext} from "../../context/github/state";
+import {useAlertContext} from '../../context/alert/state'
+import {useGithubContext} from '../../context/github/state'
 
 const Input = () => {
   const [searchValue, setSearchValue] = useState('')
   const {hideAlert, showAlert, text} = useAlertContext()
   const {getUser, setMemo, perPage, currentPage} = useGithubContext()
 
-
   const changeHandler = e => {
-    setSearchValue(e.target.value)
+    setSearchValue(e.target.value.trim())
     hideAlert()
   }
 
   const onSubmit = e => {
-    if (e.key !== 'Enter') {
-      return
-    }
+    if (e.key !== 'Enter') return
 
-    if (searchValue.trim()) {
-      getUser(searchValue.trim(), perPage, currentPage)
+    if (searchValue) {
+      getUser(searchValue, perPage, currentPage)
       setMemo(searchValue)
     } else {
       showAlert('The field value must not be empty!')
@@ -29,7 +26,7 @@ const Input = () => {
 
   return (
     <input
-      type="text"
+      type='text'
       className={!text ? 'Input' : 'Input alert'}
       value={searchValue}
       onKeyPress={onSubmit}
