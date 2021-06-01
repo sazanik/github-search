@@ -37,5 +37,8 @@
   text-decoration: none;
   color: #0064EB;
 }
+.Repos .repo a:hover {
+  opacity: 0.7;
+}
 
 /*# sourceMappingURL=Repos.css.map */
