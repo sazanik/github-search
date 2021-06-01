@@ -6,6 +6,9 @@
 .User span, .User a {
   display: inline-block;
 }
+.User a:hover {
+  opacity: 0.7;
+}
 .User .user-photo {
   margin-top: 10px;
   width: 280px;
