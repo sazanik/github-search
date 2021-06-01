@@ -18,9 +18,9 @@ const Home = () => {
   useEffect(() => {
     if (firstRender) {
       setFirstRender(false)
-    } else if (!firstRender && !user && memo) {
+    } else if (!firstRender && !user && memo.toLowerCase()) {
       history.push('/notfound')
-    } else if (!firstRender && !repos.length && memo) {
+    } else if (!firstRender && memo.toLowerCase() && !repos.length) {
       history.push('/empty')
     }
   }, [memo, user, repos])
@@ -29,7 +29,7 @@ const Home = () => {
     <>
       {loading
         ? <Loading/>
-        : (memo && user && (user.login.toLowerCase() === memo))
+        : (memo && user && (user.login.toLowerCase() === memo.toLowerCase()))
           ? <>
             <User/>
             <Repos/>
